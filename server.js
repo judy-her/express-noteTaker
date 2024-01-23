@@ -17,9 +17,14 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
+//GET Route for notes
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
+});
 //app post to handle request
 app.post('/notes', (req, res) => {
   console.log(req.body);
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
 app.listen(PORT, () => {
