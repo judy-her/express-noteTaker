@@ -14,18 +14,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //GET Route for homepage
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/index.html'));
-});
-//GET Route for notes
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/notes.html'));
-});
-//app post to handle request
-app.post('/notes', (req, res) => {
-  console.log(req.body);
-  res.sendFile(path.join(__dirname, '/public/notes.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/public/index.html'));
+// });
+// //GET Route for notes
+// app.get('/notes', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/public/notes.html'));
+// });
+// //app post to handle request
+// app.post('/notes', (req, res) => {
+//   console.log(req.body);
+//   res.sendFile(path.join(__dirname, '/public/notes.html'));
+// });
+//static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
   console.log(`🖨️ App listening at http://localhost:${PORT}`);
