@@ -34,7 +34,10 @@ notes.post('/', (req, res) => {
     //append new note to file
     readAndAppend(newNote, './db/db.json')
       .then(() => {
-        res.json('Note added successfully!');
+        res.json({
+          message: 'Note added successfully!',
+          data: newNote,
+        });
       })
       .catch((err) => {
         console.log(err);

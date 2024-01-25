@@ -17,9 +17,19 @@ app.use('/api', api);
 //static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-//api for db.json(notes)
+//api routes
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'notes.html'));
+});
+
+//api for notes
 app.get('/api/notes', (req, res) => {
   res.json(noteData);
+});
+
+//route handler for serving notes.html
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'notes.html'));
 });
 
 app.post('/api/notes', (req, res) => {
