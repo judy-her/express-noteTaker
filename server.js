@@ -2,9 +2,10 @@ const express = require('express');
 const path = require('path');
 const { clog } = require('./middleware/clog.js');
 const app = express();
-const api = require('./routes/notes.js');
-const noteData = require('./db/db.json');
-const PORT = process.env.port || 3001;
+const api = require('./routes/router.js');
+
+// const noteData = require('./db/db.json');
+const PORT = process.env.PORT || 3001;
 
 //middleware clog
 app.use(clog);
@@ -15,21 +16,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
 
 //static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
-//api routes
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'notes.html'));
-});
-
-//api for notes
-app.get('/api/notes', (req, res) => {
-  res.json(noteData);
-});
+// api for notes
+// app.get('/api/notes', (req, res) => {
+//   res.json(noteData);
+// });
 
 //route handler for serving notes.html
 app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'notes.html'));
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
 });
 
 app.post('/api/notes', (req, res) => {
@@ -39,6 +35,12 @@ app.post('/api/notes', (req, res) => {
     data: newData,
   });
 });
+//GET route for homepage
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
+});
+
+//wildcard
 
 app.listen(PORT, () => {
   console.log(`🖨️ App listening at http://localhost:${PORT}`);

@@ -1,30 +1,28 @@
-const express = require('express');
-const notes = express.Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils.js');
-// Helper function for generating unique ids
+const notes = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
+const {
+  readFromFile,
+  readAndAppend,
+  writeToFile,
+} = require('../helpers/fsUtils.js');
 
 //GET route for retrieving notes
 notes.get('/', (req, res) => {
   //read from file and sent JSON content
-  readFromFile('./db/db.json')
-    .then((data) => {
-      console.log(typeof data);
-      console.log(data);
-      const notesData = JSON.parse(data);
-      res.json(notesData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send('Internal Server Error');
-    });
+  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
+
+//EXTRA GET route for a specific note
+notes.get('/:note_id');
+//EXTRA DELETE route for a specific note
 
 //POST route for a new note
 notes.post('/', (req, res) => {
+  console.log(req.body, 'req.body');
+
   const { title, text } = req.body;
 
-  if (title && text) {
+  if (req.body) {
     const newNote = {
       title,
       text,
@@ -32,19 +30,11 @@ notes.post('/', (req, res) => {
     };
 
     //append new note to file
-    readAndAppend(newNote, './db/db.json')
-      .then(() => {
-        res.json({
-          message: 'Note added successfully!',
-          data: newNote,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).send('Internal Server Error');
-      });
+    readAndAppend(newNote, './db/db.json');
+    console.log(newNote);
+    res.json(`Note added successfully`);
   } else {
-    res.status(400).json('Error, note not added. Title and text required.');
+    res.error('Error in adding note');
   }
 });
 
