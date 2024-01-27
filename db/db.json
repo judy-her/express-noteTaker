@@ -5,13 +5,23 @@
         "id": "1"
     },
     {
-        "title": "New Note",
-        "text": "hello",
-        "id": "57d19e41-115f-4012-9d3a-9cb474b7d59a"
+        "title": "Express.js",
+        "text": "Practice express coding ",
+        "id": "2a732dc5-7e37-49d4-bbb1-7a2262e80c76"
     },
     {
-        "title": "Note three",
-        "text": "three",
-        "id": "cfcde734-a007-47f3-88d4-92b65de568e4"
+        "title": "WorkOut",
+        "text": "Do cardio for 30 minutes ",
+        "id": "40f833cf-330d-4c55-8289-a13ed727c823"
+    },
+    {
+        "title": "Me Time",
+        "text": "Watch Netflix or PBS ",
+        "id": "e2f2ecc7-5d75-4076-bced-98e3cba37681"
+    },
+    {
+        "title": "School",
+        "text": "Work on Mini-Project on Friday",
+        "id": "3fd754a4-2eda-4f09-9817-f1dbc98194a2"
     }
 ]
