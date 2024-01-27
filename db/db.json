@@ -1,22 +1,17 @@
 [
-  {
-    "title": "Test Title",
-    "text": "Test text",
-    "note_id": " "
-  },
-  {
-    "title": "Test Title",
-    "text": "Test text",
-    "note_id": "19055f16-703d-4fb3-b3a8-9dce117e15b7"
-  },
-  {
-    "title": "hello",
-    "text": "note",
-    "note_id": "87ce189b-5e66-47ba-a45c-06c1cf4a154b"
-  },
-  {
-    "title": "New Note",
-    "text": "Study",
-    "note_id": "8288de65-4bfc-4585-a4dc-442fb664734c"
-  }
+    {
+        "title": "Test Title",
+        "text": "Test text",
+        "id": "1"
+    },
+    {
+        "title": "New Note",
+        "text": "hello",
+        "id": "57d19e41-115f-4012-9d3a-9cb474b7d59a"
+    },
+    {
+        "title": "Note three",
+        "text": "three",
+        "id": "cfcde734-a007-47f3-88d4-92b65de568e4"
+    }
 ]

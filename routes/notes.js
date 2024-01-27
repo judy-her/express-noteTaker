@@ -13,7 +13,17 @@ notes.get('/', (req, res) => {
 });
 
 //EXTRA GET route for a specific note
-notes.get('/:note_id');
+notes.get('/:id', (req, res) => {
+  const noteId = req.params.id;
+  readFromFile('./db/db.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      const result = json.filter((note) => note.id === noteId);
+      return result.length > 0
+        ? res.json(result)
+        : res.json('No note with that ID');
+    });
+});
 //EXTRA DELETE route for a specific note
 
 //POST route for a new note
@@ -26,13 +36,15 @@ notes.post('/', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuidv4(),
+      id: uuidv4(),
     };
 
     //append new note to file
     readAndAppend(newNote, './db/db.json');
     console.log(newNote);
-    res.json(`Note added successfully`);
+
+    //return the note to the client
+    res.json(newNote);
   } else {
     res.error('Error in adding note');
   }
