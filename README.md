@@ -22,10 +22,10 @@ To Install necessary dependencies, make sure to run the following command:
 
 ## Usage
 
-First, you will be taken to a welcome page where you can click on the Get Started button. Once you click the button, you will be directed to the Note Taker interface. You will see sample notes to the left of the screen. To start a note you need to 1)Give a Note Title and 2)Fill out the note with your text. Once you do both two buttons will appear at the top right corner. One is to save the note and the other to clear the form. To save, click on SAVE NOTE and it will be added to the list on the left. You see the text to the note by clicking on the note Title. To delete, simply click the trash can icon on the note. Your notes will not be deleted if you leave the website.
+First, you will be taken to a welcome page where you can click on the Get Started button. Once you click the button, you will be directed to the Note Taker interface. You will see sample notes to the left of the screen. To start a note you need to 1)Give a Note Title and 2)Fill out the note with your text. Once you do both two buttons will appear at the top right corner. One is to save the note and the other to clear the form. To save, click on Save Note and it will be added to the list on the left. You see the text to the note by clicking on the note Title. To delete, simply click the trash can icon on the note. Your notes will not be deleted if you leave the website.
+For full access click on this link > https://judy-her.github.io/express-noteTaker/
 
-Don't forget to add a screenshot by creating assets/images and use the following syntax:
-![alt text](assets/images/screenshot.png)
+![NoteTaker](public/assets/images/Screenshot-notetaker.png)
 
 ## License
 
